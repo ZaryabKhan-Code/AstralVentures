@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+:root {
+  --zk-base-font: "Source Code Pro", monospace;
+  --zk-heading-font: var(--zk-base-font, "Urbanist", sans-serif);
+  --zk-base-font-size: 20px;
+  --zk-secondary: var(--zk-grey-400);
+  --zk-body-text: var(--zk-white);
+  --zk-base-line-height: 1.6;
+  --zk-border-radius: 8px;
+  --zk-border-radius-lg: 10px;
+  --zk-border-radius-sm: 5px;
+  --zk-base-transition: all 0.3s ease;
+  --zk-white: #fff;
+  --zk-black: #000;
+  --zk-grey-100: #cdcdcd;
+  --zk-grey-200: #b3b3b3;
+  --zk-grey-300: #333334;
+  --zk-grey-400: #4d4d53;
+  --zk-grey-500: #2b2b31;
+  --zk-grey-600: #26262c;
+  --zk-grey-700: #25252b;
+  --zk-grey-700-rgb: 37, 37, 43;
+  --zk-grey-800: #222228;
+  --zk-grey-900: #17171d;
+  --zk-no-content: var(--zk-white);
+  --zk-chat-request: #2d2f54;
+  --zk-primary: #3640f0;
+  --zk-secondary: var(--zk-grey-400);
+  --zk-info: #70a0ff;
+  --zk-success: #27e1bf;
+  --zk-warning: #ff9f1a;
+  --zk-danger: #f86262;
+  --zk-violet: #6248ff;
+  --zk-border-color: var(--zk-secondary);
+  --zk-border-color-light: var(--zk-grey-300);
+  --zk-cyan: #27e1bf;
+  --zk-teal: #b0a1df;
+}
+* {
+  font-family: "Montserrat", sans-serif;
+}
+#chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+  background-color: #686868;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  background-color: #c2e9ff;
+}
+#bot-class {
+  height: 100vh;
+  background: #3f3f3f;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 20px;
+}
+#chat-messages {
+  overflow-y: auto;
+  max-height: 900px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+}
+.chat-message {
+  padding: 10px;
+  padding-bottom: 10px;
+  margin: 10px 0;
+  margin-right: 10px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+}
+.chat_container_user {
+  display: flex;
+  justify-content: flex-end;
+  font-family: "Poppins", sans-serif;
+}
+.user-image img {
+  height: 50px;
+  margin-top: 10px;
+  margin-right: 10px;
+  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
+}
+
+.user-image img:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Intensified glow effect on hover */
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Initial glow effect */
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Intensified glow effect */
+  }
+}
+
+.user-image-glow img {
+  animation: glow 1s infinite alternate; /* Apply the glow animation */
+}
+.assistant-image img {
+  height: 50px;
+  margin-top: 11px;
+  margin-right: 10px;
+  transition: box-shadow 0.3s ease; /* Smooth transition for the glow effect */
+}
+
+.assistant-image img:hover {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Intensified glow effect on hover */
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Initial glow effect */
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Intensified glow effect */
+  }
+}
+
+.assistant-image-glow img {
+  animation: glow 1s infinite alternate; /* Apply the glow animation */
+}
+
+.chat-user {
+  color: var(--zk-body-text);
+  background: var(--zk-chat-request);
+  text-align: left;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border: 1px;
+  max-width: 75%;
+}
+.chat-container {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+.chat-bot {
+  border-radius: var(--zk-border-radius);
+  background: var(--zk-grey-700);
+  color: var(--zk-white);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-top: 13px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px;
+}
+.input-control {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 9px;
+  transition: all 0.35s;
+  box-sizing: border-box;
+  margin: 0;
+  height: 60px;
+  font-family: "Source Code Pro", monospace;
+  line-height: 60px;
+  width: 100%;
+  color: #333;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  outline: none;
+  border-radius: 16px;
+  border-color: var(--zk-border-color-light);
+  background: var(--zk-grey-700);
+  color: var(--zk-body-text);
+  box-shadow: 2px 8px 20px 0px rgba(53, 53, 53, 0.15);
+  height: auto;
+}
+
+#chat-input {
+  border: none;
+  outline: none;
+  width: 87%;
+  margin-right: -7rem;
+  padding-top: 0px;
+  background: var(--zk-grey-700);
+  color: var(--zk-white);
+  padding-bottom: 0px;
+}
+#chat-input:focus,
+#chat-input:hover {
+  outline: none;
+  box-shadow: none;
+}
+.input-group {
+  position: relative;
+}
+
+.inside-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 6px;
+  border: none;
+  border-radius: 9px;
+  margin-right: 30px;
+  color: #b3b3b3;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  background: var(--zk-secondary);
+  transition: all 0.25s;
+  padding: 5px 10px 2px 10px;
+  cursor: pointer;
+}
+.inside-input:hover,
+.inside-input:focus {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  color: #fff;
+  -webkit-transform: scale(1.045, 1.045);
+  -moz-transform: scale(1.045, 1.045);
+  -ms-transform: scale(1.045, 1.045);
+  -o-transform: scale(1.045, 1.045);
+  transform: scale(1.045, 1.045);
+}
+
+@media (max-width: 950px) {
+  #bot-class {
+    width: 100%;
+  }
+  .input-control {
+    height: 55px;
+    font-size: 16px;
+  }
+  .inside-input {
+    margin-top: 7px;
+    padding: 10px 20px 10px 20px;
+    font-size: 14px;
+  }
+  .assistant-image img {
+    height: 45px;
+  }
+  .user-image img {
+    height: 45px;
+  }
+  .chat-bot {
+    margin-top: 11px;
+    font-size: 16px;
+  }
+  .chat-user {
+    font-size: 16px;
+  }
+}
+@media (max-width: 500px) {
+  .input-control {
+    height: 45px;
+    font-size: 10px;
+  }
+  .inside-input {
+    padding: 8px 17px 8px 17px;
+    font-size: 10px;
+  }
+
+  .assistant-image img {
+    height: 30px;
+  }
+  .user-image img {
+    height: 30px;
+  }
+  #chat-input {
+    width: 80%;
+  }
+  .chat-bot {
+    font-size: 10px;
+  }
+  .chat-user {
+    font-size: 10px;
+  }
+}

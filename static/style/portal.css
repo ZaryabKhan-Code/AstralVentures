@@ -1,0 +1,90 @@
+.containerr {
+  width: 40%;
+  margin: 80px auto;
+  padding: 15px;
+  box-shadow: rgba(112, 174, 170, 0.696) 0px 7px 29px 0px;
+  background: url("/static/image/4909528.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  align-items: center;
+}
+
+h1 {
+  font-weight: bold;
+  text-align: center;
+  color: rgb(76, 127, 136);
+}
+
+label {
+  font-size: 20px;
+  color: rgb(55, 55, 55);
+  margin: 20px auto;
+  font-weight: 500;
+}
+
+input {
+  border: 2px solid rgba(112, 174, 170, 0.696);
+  background: transparent;
+  border-radius: 10px;
+  width: 80%;
+  padding: 5px;
+  font-size: 16px;
+}
+
+.button {
+  margin: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+  position: relative;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 800;
+  text-align: center;
+  color: rgb(55, 55, 55);
+  background-color: transparent;
+  padding: 7px 64px 7px 64px;
+  border: 1px solid rgb(55, 55, 55);
+  overflow: hidden; /* This is important to contain the inner border */
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px solid rgb(28, 182, 217);
+  opacity: 0; /* Start with the border hidden */
+  transition: opacity 0.3s ease-in-out; /* Add transition for smooth animation */
+  animation: borderAnimation 2s infinite; /* Apply the animation */
+}
+
+@keyframes borderAnimation {
+  0%,
+  100% {
+    opacity: 0;
+    color: rgb(55, 55, 55); /* Change text color back to original */
+  }
+  50% {
+    opacity: 1;
+    color: rgb(28, 182, 217); /* Change text color to white */
+  }
+}
+
+/* Add animation to the button text */
+@keyframes textAnimation {
+  0%,
+  100% {
+    color: rgb(55, 55, 55); /* Change text color back to original */
+  }
+  50% {
+    color: rgb(28, 182, 217); /* Change text color to white */
+  }
+}
+
+.button.animated {
+  animation: textAnimation 2s infinite; /* Apply the animation to button text */
+}

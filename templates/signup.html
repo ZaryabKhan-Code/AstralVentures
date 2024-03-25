@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Token</title>
+    <link href="{{ url_for('static', filename='style/portal.css')}}" rel="stylesheet" />
+</head>
+
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+
+    <div class="containerr">
+        <form action="{{ url_for('user.signup_post', token=token) }}" method="post">
+            <h1>Sign Up</h1>
+            <input type="hidden" name="token" value="{{ token }}">
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="john@gmail.com"
+                value="{{ email if email else '' }}" required><br>
+            <label for="first_name">First Name:</label><br>
+            <input type="text" id="first_name" name="first_name" placeholder="John" required><br><br>
+            <label for="last_name">Last Name:</label><br>
+            <input type="text" id="last_name" name="last_name" placeholder="Albert" required><br><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" placeholder="*********" required><br><br>
+            <label for="organization">Company or School:</label><br>
+            <input type="text" id="organization" name="organization" placeholder="New York School"><br><br>
+            <label for="designation">Role or Major:</label><br>
+            <input type="text" id="designation" name="designation" placeholder="Teacher"><br><br>
+
+            <button type="submit" class="button animated">Register</button>
+        </form>
+    </div>
+
+    {% endblock %}
+</body>
+
+</html>

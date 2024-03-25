@@ -100,9 +100,6 @@ def get_chat_limit(user_id):
     return chat_limit
 
 
-openai.api_key = "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"
-
-
 @user.route("/submit", methods=["POST"])
 def submit():
     user_input = request.form["user_input"]
